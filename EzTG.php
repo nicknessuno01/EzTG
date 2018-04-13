@@ -22,7 +22,7 @@ class EzTG {
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     while (true) {
-      curl_setopt($ch, CURLOPT_POSTFIELDS, 'offset='.$this->offset);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, 'offset='.$this->offset.'&timeout=10');
       $result = json_decode(curl_exec($ch));
       if ($result->ok == 0) $this->error($result->description);
       foreach ($result->result as $update) {
