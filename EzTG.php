@@ -48,5 +48,6 @@ class EzTG {
     $result = json_decode(curl_exec($ch));
     curl_close($ch);
     if ($result->ok == 0) $this->error($result->description);
+    return $result->result;
   }
 }
